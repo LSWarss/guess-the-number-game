@@ -1,0 +1,16 @@
+#playBox{
+    margin-top: 20%;
+}
+
+#playButton{
+    text-transform: uppercase;
+}
+
+#playButton a{
+    text-decoration: none;
+    color: black;
+}
+
+#playButton a:hover{
+    color: red;
+}

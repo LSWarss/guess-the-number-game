@@ -1,0 +1,10 @@
+<thlogic>
+    <attr sel="#footerId"
+          th:fragment="footerFragment"
+    />
+
+    <attr sel="#footerLink"
+          th:href="@{https://github.com/LSWarss}"
+    />
+
+</thlogic>
