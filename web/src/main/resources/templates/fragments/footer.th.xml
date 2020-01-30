@@ -6,5 +6,7 @@
     <attr sel="#footerLink"
           th:href="@{https://github.com/LSWarss}"
     />
+    <attr sel="#created-by"
+          th:text="#{game.createdBy}" />
 
 </thlogic>
