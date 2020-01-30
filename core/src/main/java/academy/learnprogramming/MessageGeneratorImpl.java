@@ -14,6 +14,13 @@ public class MessageGeneratorImpl implements MessageGenerator {
 
     // == constants ==
     private static final String MAIN_MESSAGE = "game.main.message"; //key for main message
+    private static final String WIN_MESSAGE = "game.win";
+    private static final String LOSE_MESSAGE = "game.lose";
+    private static final String INVALID_RANGE = "game.invalid.range";
+    private static final String FIST_GUESS = "game.first.guess";
+    private static final String LOWER = "game.lower";
+    private static final String HIGHER = "game.higher";
+    private static final String GUESSES_REMAINING = "game.remaining";
 
 
     // == fields ==
@@ -43,25 +50,25 @@ public class MessageGeneratorImpl implements MessageGenerator {
     @Override
     public String getResultMessage() {
         if(game.isGameWon()){
-            return "You guessed it ! The number was " + game.getNumber();
+            return getMessage(WIN_MESSAGE, game.getNumber());
         }
         else if(game.isGameLost()){
-            return "You lost. The number was " + game.getNumber();
+            return getMessage(LOSE_MESSAGE, game.getNumber());
         }
         else if(!game.isValidNumberRange()){
-            return "Invalid number range!";
+            return getMessage(INVALID_RANGE);
         }
         else if(game.getRemainingGuesses() == game.getGuessCount()){
-            return "What is your first guess?";
+            return getMessage(FIST_GUESS);
         }
         else{
-            String direction = "Lower";
+            String direction = getMessage(LOWER);
 
             if(game.getGuess() < game.getNumber()){
-                direction = "Higher";
+                direction = getMessage(HIGHER);
             }
 
-            return direction + "! You have " + game.getRemainingGuesses() + " guesses left";
+            return getMessage(GUESSES_REMAINING, direction, game.getRemainingGuesses());
         }
 
 
